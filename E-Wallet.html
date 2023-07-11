@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Al-Faris Wallet</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <header>
+      <h1>Al-Faris Wallet</h1>
+    </header>
+
+    <main>
+      <section>
+        <h2>Register/Login</h2>
+        <form id="register-form" autocomplete="off">
+          <div>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required minlength="5" pattern="[A-Za-z0-9]+" title="Username must contain only letters and numbers (no spaces)">
+          </div>
+
+          <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+
+          <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
+          </div>
+
+          <div>
+            <button type="submit">Register</button>
+          </div>
+        </form>
+        <div>
+          <button id="login-button">Login</button>
+        </div>
+      </section>
+
+      <section id="login-section" style="display:none">
+        <h2>Login</h2>
+        <form id="login-form" autocomplete="off">
+          <div>
+            <label for="login-email">Email:</label>
+            <input type="email" id="login-email" name="email" required>
+          </div>
+
+          <div>
+            <label for="login-password">Password:</label>
+            <input type="password" id="login-password" name="password" required>
+          </div>
+
+          <div>
+            <button type="submit">Login</button>
+          </div>
+        </form>
+      </section>
+
+      <section id="balance" style="display:none">
+        <h2>Balance</h2>
+        <div>
+          <fieldset aria-describedby="balance-description">
+            <legend>Current Balance</legend>
+            <div>
+              <label for="balance-amount">Amount:</label>
+              <input type="number" id="balance-amount" name="balance" min="0" required readonly step="0.01">
+              <span id="balance-amount-description" aria-label="Balance amount is displayed in TRX"></span>
+            </div>
+          </fieldset>
+        </div>
+      </section>
+
+      <section id="deposit-form" style="display:none">
+        <h2>Deposit</h2>
+        <form autocomplete="off">
+          <fieldset aria-describedby="deposit-description">
+            <legend>Deposit Amount</legend>
+            <div>
+              <label for="deposit-amount">Amount:</label>
+              <input type="number" id="deposit-amount" name="amount" min="0" required step="0.01">
+            </div>
+          </fieldset>
+
+          <div>
+            <button type="submit">Deposit</button>
+          </div>
+        </form>
+      </section>
+
+      <section id="deposit-qr" style="display:none">
+        <h2>Deposit Address</h2>
+        <div>
+          <img id="qr-code" alt="QR Code">
+        </div>
+      </section>
+
+      <section id="withdraw-form" style="display:none">
+        <h2>Withdraw</h2>
+        <form autocomplete="off">
+          <fieldset aria-describedby="withdraw-description">
+            <legend>Withdraw Amount</legend>
+            <div>
+              <label for="withdraw-amount">Amount:</label>
+              <input type="number" id="withdraw-amount" name="amount" min="0" required step="0.01">
+            </div>
+          </fieldset>
+
+          <div>
+            <button type="submit">Withdraw</button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <script type="module" src="app.js"></script>
+      <script>
+        const loginButton = document.getElementById('login-button');
+        const registerSection = document.querySelector('section:first-of-type');
+        const loginSection = document.getElementById('login-section');
+
+        loginButton.addEventListener('click', () => {
+          registerSection.style.display = 'none';
+          loginSection.style.display = 'block';
+        });
+      </script>
+    </footer>
+  </body>
+  </html>

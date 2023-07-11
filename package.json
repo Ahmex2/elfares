@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "jose": "^4.14.4",
+    "jsonwebtoken": "^9.0.0",
+    "mongodb": "^3.6.3"
+  },
+  "name": "e-wallet",
+  "version": "1.0.0",
+  "description": "e-wallet el faris",
+  "main": "server.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "\"Ahmed\"",
+  "license": "MIT"
+}
